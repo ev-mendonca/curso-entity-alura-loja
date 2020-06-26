@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Loja.Testes.ConsoleApp/bin
+/Loja.Testes.ConsoleApp/obj
