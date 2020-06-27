@@ -176,6 +176,10 @@
     <Compile Include="Migrations\20200627171623_EstrturaInicial.designer.cs">
       <DependentUpon>20200627171623_EstrturaInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200627172725_UnidadeDeProduto.cs" />
+    <Compile Include="Migrations\20200627172725_UnidadeDeProduto.designer.cs">
+      <DependentUpon>20200627172725_UnidadeDeProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LojaContextModelSnapshot.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="ProdutoDAO.cs" />
