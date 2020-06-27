@@ -12,9 +12,9 @@ namespace Loja.Testes.ConsoleApp
         static void Main(string[] args)
         {
             //InserirProduto();
-            //ListarProdutos();
+            ListarProdutos();
             //RemoverProdutos();
-            AtualizarPrimeiroProduto();
+            //AtualizarPrimeiroProduto();
 
             Console.ReadLine();
         }

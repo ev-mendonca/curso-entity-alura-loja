@@ -1,4 +1,7 @@
 ﻿using Loja.Testes.ConsoleApp;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,42 +10,37 @@ using System.Threading.Tasks;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    public class ProdutoDAOEntity : IProdutoDAO
+    public class ProdutoDAOEntity : BaseDAOEntity, IProdutoDAO
     {
-        private LojaContext context;
-
-        public ProdutoDAOEntity()
-        {
-            context = new LojaContext();
-        }
+        public ProdutoDAOEntity() : base(){ }
 
         public void Atualizar(Produto produto)
         {
-            context.Produtos.Update(produto);
-            context.SaveChanges();
+            Context.Produtos.Update(produto);
+            Context.SaveChanges();
         }
 
         public void Dispose()
         {
-            context.Dispose();
+            Context.Dispose();
         }
 
         public void Inserir(Produto produto)
         {
-            context.Produtos.Add(produto);
-            context.SaveChanges();
+            Context.Produtos.Add(produto);
+            Context.SaveChanges();
         }
 
 
         public IList<Produto> Listar()
         {
-            return context.Produtos.ToList();
+            return Context.Produtos.ToList();
         }
 
         public void Remover(Produto produto)
         {
-            context.Remove(produto);
-            context.SaveChanges();
+            Context.Remove(produto);
+            Context.SaveChanges();
         }
     }
 }
