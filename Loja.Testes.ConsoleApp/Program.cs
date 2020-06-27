@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Alura.Loja.Testes.ConsoleApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,46 +11,64 @@ namespace Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //GravarUsandoAdoNet();
-            GravarUsandoEntity();
+            //InserirProduto();
+            //ListarProdutos();
+            //RemoverProdutos();
+            AtualizarPrimeiroProduto();
+
+            Console.ReadLine();
         }
 
-        private static void GravarUsandoEntity()
+        private static void AtualizarPrimeiroProduto()
+        {
+            using (IProdutoDAO repo = new ProdutoDAOEntity())
+            {
+                ListarProdutos();
+                Produto primeiroProduto = repo.Listar().FirstOrDefault();
+                primeiroProduto.Nome = "Tropa de Elite";
+                repo.Atualizar(primeiroProduto);
+                ListarProdutos();
+            }
+        }
+
+        private static void RemoverProdutos()
+        {
+            using(IProdutoDAO repo = new ProdutoDAOEntity())
+            {
+                IList<Produto> produtos = repo.Listar();
+                foreach (var item in produtos)
+                {
+                    repo.Remover(item);
+                }
+            }
+        }
+
+        private static void ListarProdutos()
+        {
+            using(IProdutoDAO repo = new ProdutoDAOEntity())
+            {
+                IList<Produto> produtos = repo.Listar();
+                Console.WriteLine($"Foram encontrados {produtos.Count} produtos");
+                foreach (var item in produtos)
+                {
+                    Console.WriteLine(item.Nome);
+                }
+            }
+        }
+
+        private static void InserirProduto()
         {
             Produto p = new Produto();
             p.Nome = "Harry Potter e a Ordem da Fênix";
             p.Categoria = "Livros";
             p.Preco = 19.89;
-
-            Produto p2 = new Produto();
-            p2.Nome = "Senhor dos Anéis 1";
-            p2.Categoria = "Livros";
-            p2.Preco = 19.89;
-
-            Produto p3 = new Produto();
-            p3.Nome = "O Monge e o Executivo";
-            p3.Categoria = "Livros";
-            p3.Preco = 19.89;
-
-            using (var context = new LojaContext())
+            
+            using (IProdutoDAO repo = new ProdutoDAOEntity())
             {
-                context.Produtos.AddRange(p, p2, p3);
-                context.SaveChanges();
-                
+                repo.Inserir(p);
             }
         }
 
-        private static void GravarUsandoAdoNet()
-        {
-            Produto p = new Produto();
-            p.Nome = "Harry Potter e a Ordem da Fênix";
-            p.Categoria = "Livros";
-            p.Preco = 19.89;
-
-            using (var repo = new ProdutoDAO())
-            {
-                repo.Adicionar(p);
-            }
-        }
+        
     }
 }
