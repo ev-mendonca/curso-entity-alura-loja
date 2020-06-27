@@ -43,7 +43,7 @@ namespace Alura.Loja.Testes.ConsoleApp
         }
     }
 
-    internal class SqlLogger : ILogger
+    internal class SqlLogger :  ILogger
     {
         public IDisposable BeginScope<TState>(TState state)
         {
