@@ -1,11 +1,8 @@
-﻿using Loja.Testes.ConsoleApp;
+﻿using Loja.Testes.ConsoleApp.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Alura.Loja.Testes.ConsoleApp
+namespace Loja.Testes.ConsoleApp.DAO.Interfaces
 {
     interface IProdutoDAO : IDisposable
     {

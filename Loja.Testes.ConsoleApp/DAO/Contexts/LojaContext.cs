@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using Loja.Testes.ConsoleApp.Model;
+using Microsoft.EntityFrameworkCore;
 
-namespace Loja.Testes.ConsoleApp
+namespace Loja.Testes.ConsoleApp.DAO.Contexts
 {
     public class LojaContext : DbContext
     {

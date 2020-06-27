@@ -1,19 +1,16 @@
-﻿using Loja.Testes.ConsoleApp;
+﻿using Loja.Testes.ConsoleApp.DAO.Contexts;
+using Loja.Testes.ConsoleApp.DAO.Utils;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Alura.Loja.Testes.ConsoleApp
+namespace Loja.Testes.ConsoleApp.DAO
 {
-    public abstract class BaseDAOEntity
+    public abstract class BaseDAO
     {
         protected LojaContext Context;
-        public BaseDAOEntity()
+        public BaseDAO()
         {
             Context = new LojaContext();
             var serviceProvider = Context.GetInfrastructure<IServiceProvider>();

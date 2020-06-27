@@ -1,9 +1,6 @@
-﻿using Alura.Loja.Testes.ConsoleApp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Loja.Testes.ConsoleApp.DAO;
+using Loja.Testes.ConsoleApp.DAO.Interfaces;
+using Loja.Testes.ConsoleApp.Model;
 
 namespace Loja.Testes.ConsoleApp
 {
@@ -23,6 +20,11 @@ namespace Loja.Testes.ConsoleApp
             compra.Produto = produto;
             compra.Quantidade = 3;
             compra.Preco = produto.PrecoUnitario * compra.Quantidade;
+
+            using(ICompraDAO repo = new CompraDAO())
+            {
+                repo.Inserir(compra);
+            }
             
         }
     }

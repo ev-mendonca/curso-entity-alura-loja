@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Loja.Testes.ConsoleApp.DAO.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using Loja.Testes.ConsoleApp;
 
-namespace Alura.Loja.Testes.ConsoleApp.Migrations
+
+namespace Loja.Testes.ConsoleApp.Migrations
 {
     [DbContext(typeof(LojaContext))]
     partial class LojaContextModelSnapshot : ModelSnapshot

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Alura.Loja.Testes.ConsoleApp.Migrations
+namespace Loja.Testes.ConsoleApp.Migrations
 {
     public partial class UnidadeDeProduto : Migration
     {

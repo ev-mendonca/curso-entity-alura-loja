@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using System;
 
-namespace Alura.Loja.Testes.ConsoleApp
+namespace Loja.Testes.ConsoleApp.DAO.Utils
 {
     public class SqlLoggerProvider : ILoggerProvider
     {
-        
+
         public static ILoggerProvider Create()
         {
             return new SqlLoggerProvider();
@@ -19,10 +18,10 @@ namespace Alura.Loja.Testes.ConsoleApp
                 return new SqlLogger();
 
             return new NullLogger();
-            
+
         }
 
-        public void Dispose(){}
+        public void Dispose() { }
     }
 
     internal class NullLogger : ILogger
@@ -39,11 +38,11 @@ namespace Alura.Loja.Testes.ConsoleApp
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            
+
         }
     }
 
-    internal class SqlLogger :  ILogger
+    internal class SqlLogger : ILogger
     {
         public IDisposable BeginScope<TState>(TState state)
         {
@@ -58,7 +57,7 @@ namespace Alura.Loja.Testes.ConsoleApp
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
             Console.WriteLine("");
-            Console.WriteLine(formatter(state,exception));
+            Console.WriteLine(formatter(state, exception));
             Console.WriteLine("");
         }
     }

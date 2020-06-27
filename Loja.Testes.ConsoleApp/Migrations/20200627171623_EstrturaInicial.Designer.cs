@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Loja.Testes.ConsoleApp;
+using Loja.Testes.ConsoleApp.DAO.Contexts;
 
-namespace Alura.Loja.Testes.ConsoleApp.Migrations
+namespace Loja.Testes.ConsoleApp.Migrations
 {
     [DbContext(typeof(LojaContext))]
     [Migration("20200627171623_EstrturaInicial")]

@@ -1,18 +1,13 @@
-﻿using Loja.Testes.ConsoleApp;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using Loja.Testes.ConsoleApp.DAO.Interfaces;
+using Loja.Testes.ConsoleApp.Model;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Alura.Loja.Testes.ConsoleApp
+namespace Loja.Testes.ConsoleApp.DAO
 {
-    public class ProdutoDAO : BaseDAOEntity, IProdutoDAO
+    public class ProdutoDAO : BaseDAO, IProdutoDAO
     {
-        public ProdutoDAO() : base(){ }
+        public ProdutoDAO() : base() { }
 
         public void Atualizar(Produto produto)
         {

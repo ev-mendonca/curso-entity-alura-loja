@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Alura.Loja.Testes.ConsoleApp.Migrations
+namespace Loja.Testes.ConsoleApp.Migrations
 {
     public partial class Compra : Migration
     {
