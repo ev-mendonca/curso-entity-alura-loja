@@ -21,7 +21,7 @@ namespace Loja.Testes.ConsoleApp
 
         private static void AtualizarPrimeiroProduto()
         {
-            using (IProdutoDAO repo = new ProdutoDAOEntity())
+            using (IProdutoDAO repo = new ProdutoDAO())
             {
                 ListarProdutos();
                 Produto primeiroProduto = repo.Listar().FirstOrDefault();
@@ -33,7 +33,7 @@ namespace Loja.Testes.ConsoleApp
 
         private static void RemoverProdutos()
         {
-            using(IProdutoDAO repo = new ProdutoDAOEntity())
+            using(IProdutoDAO repo = new ProdutoDAO())
             {
                 IList<Produto> produtos = repo.Listar();
                 foreach (var item in produtos)
@@ -45,7 +45,7 @@ namespace Loja.Testes.ConsoleApp
 
         private static void ListarProdutos()
         {
-            using(IProdutoDAO repo = new ProdutoDAOEntity())
+            using(IProdutoDAO repo = new ProdutoDAO())
             {
                 IList<Produto> produtos = repo.Listar();
                 Console.WriteLine($"Foram encontrados {produtos.Count} produtos");
@@ -63,7 +63,7 @@ namespace Loja.Testes.ConsoleApp
             p.Categoria = "Livros";
             p.Preco = 19.89;
             
-            using (IProdutoDAO repo = new ProdutoDAOEntity())
+            using (IProdutoDAO repo = new ProdutoDAO())
             {
                 repo.Inserir(p);
             }
