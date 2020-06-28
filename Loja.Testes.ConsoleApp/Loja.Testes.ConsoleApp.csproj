@@ -170,11 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\BaseDAO.cs" />
+    <Compile Include="DAO\Interfaces\IBaseDAO.cs" />
     <Compile Include="DAO\PromocaoDAO.cs" />
     <Compile Include="DAO\Contexts\LojaContext.cs" />
-    <Compile Include="DAO\Interfaces\IPromocaoDAO.cs" />
-    <Compile Include="DAO\Interfaces\ICompraDAO.cs" />
-    <Compile Include="DAO\Interfaces\IProdutoDAO.cs" />
     <Compile Include="DAO\CompraDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\Utils\SqlLoggerProvider.cs" />

@@ -2,10 +2,11 @@
 using Loja.Testes.ConsoleApp.Model;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Loja.Testes.ConsoleApp.DAO
 {
-    public class CompraDAO : BaseDAO, ICompraDAO
+    public class CompraDAO : BaseDAO, IBaseDAO<Compra>
     {
         public CompraDAO() : base() { }
 
@@ -13,6 +14,11 @@ namespace Loja.Testes.ConsoleApp.DAO
         {
             Context.Compras.Update(compra);
             Context.SaveChanges();
+        }
+
+        public Compra Carregar(int id)
+        {
+            return Context.Compras.Find(id);
         }
 
         public void Dispose()
@@ -37,5 +43,7 @@ namespace Loja.Testes.ConsoleApp.DAO
             Context.Remove(compra);
             Context.SaveChanges();
         }
+
+       
     }
 }

@@ -35,7 +35,7 @@ namespace Loja.Testes.ConsoleApp
 
             promocao.AdicionaProduto(p1, p2);
 
-            using(IPromocaoDAO repo = new PromocaoDAO())
+            using(var repo = new PromocaoDAO())
             {
                 repo.Inserir(promocao);
             }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Loja.Testes.ConsoleApp.DAO
 {
-    public class ProdutoDAO : BaseDAO, IProdutoDAO
+    public class ProdutoDAO : BaseDAO, IBaseDAO<Produto>
     {
         public ProdutoDAO() : base() { }
 
@@ -13,6 +13,11 @@ namespace Loja.Testes.ConsoleApp.DAO
         {
             Context.Produtos.Update(produto);
             Context.SaveChanges();
+        }
+
+        public Produto Carregar(int id)
+        {
+            return Context.Produtos.Find(id);
         }
 
         public void Dispose()
