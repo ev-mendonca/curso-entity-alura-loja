@@ -1,4 +1,6 @@
-﻿namespace Loja.Testes.ConsoleApp.Model
+﻿using System.Collections.Generic;
+
+namespace Loja.Testes.ConsoleApp.Model
 {
     public class Produto
     {
@@ -7,5 +9,6 @@
         public string Categoria { get; internal set; }
         public double PrecoUnitario { get; internal set; }
         public string Unidade { get; internal set; }
+        public IList<PromocaoProduto> Promocoes { get; internal set; }
     }
 }

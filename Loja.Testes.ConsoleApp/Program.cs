@@ -1,6 +1,7 @@
 ﻿using Loja.Testes.ConsoleApp.DAO;
 using Loja.Testes.ConsoleApp.DAO.Interfaces;
 using Loja.Testes.ConsoleApp.Model;
+using System;
 
 namespace Loja.Testes.ConsoleApp
 {
@@ -8,23 +9,37 @@ namespace Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Produto produto = new Produto
+
+            Produto p1 = new Produto
             {
-                Nome = "Quindin",
-                PrecoUnitario = 1.5,
-                Categoria = "Confeitaria",
+                Nome = "Chocolate em Barra",
+                PrecoUnitario = 4.5,
+                Categoria = "Bomboniere",
                 Unidade = "Unidade"
             };
 
-            Compra compra = new Compra();
-            compra.Produto = produto;
-            compra.Quantidade = 3;
-            compra.Preco = produto.PrecoUnitario * compra.Quantidade;
-
-            using(ICompraDAO repo = new CompraDAO())
+            Produto p2 = new Produto
             {
-                repo.Inserir(compra);
+                Nome = "Ovo de Pascoa",
+                PrecoUnitario = 35.00,
+                Categoria = "Bomboniere",
+                Unidade = "Unidade"
+            };
+
+            Promocao promocao = new Promocao
+            {
+                Descricao = "Doce Pascoa",
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddMonths(2)
+            };
+
+            promocao.AdicionaProduto(p1, p2);
+
+            using(IPromocaoDAO repo = new PromocaoDAO())
+            {
+                repo.Inserir(promocao);
             }
+            
             
         }
     }

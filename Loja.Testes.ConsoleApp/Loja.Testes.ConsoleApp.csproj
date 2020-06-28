@@ -170,7 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\BaseDAO.cs" />
+    <Compile Include="DAO\PromocaoDAO.cs" />
     <Compile Include="DAO\Contexts\LojaContext.cs" />
+    <Compile Include="DAO\Interfaces\IPromocaoDAO.cs" />
     <Compile Include="DAO\Interfaces\ICompraDAO.cs" />
     <Compile Include="DAO\Interfaces\IProdutoDAO.cs" />
     <Compile Include="DAO\CompraDAO.cs" />
@@ -188,7 +190,13 @@
     <Compile Include="Migrations\20200627175646_Compra.designer.cs">
       <DependentUpon>20200627175646_Compra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200628014106_Promocao.cs" />
+    <Compile Include="Migrations\20200628014106_Promocao.designer.cs">
+      <DependentUpon>20200628014106_Promocao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LojaContextModelSnapshot.cs" />
+    <Compile Include="Model\PromocaoProduto.cs" />
+    <Compile Include="Model\Promocao.cs" />
     <Compile Include="Model\Compra.cs" />
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Program.cs" />
