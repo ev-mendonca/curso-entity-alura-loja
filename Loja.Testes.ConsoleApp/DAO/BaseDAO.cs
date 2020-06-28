@@ -10,9 +10,9 @@ namespace Loja.Testes.ConsoleApp.DAO
     public abstract class BaseDAO
     {
         protected LojaContext Context;
-        public BaseDAO()
+        public BaseDAO(LojaContext context)
         {
-            Context = new LojaContext();
+            Context = context;
             var serviceProvider = Context.GetInfrastructure<IServiceProvider>();
             var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
             loggerFactory.AddProvider(SqlLoggerProvider.Create());

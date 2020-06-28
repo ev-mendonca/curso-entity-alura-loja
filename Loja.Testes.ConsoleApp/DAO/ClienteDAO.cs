@@ -1,4 +1,5 @@
-﻿using Loja.Testes.ConsoleApp.DAO.Interfaces;
+﻿using Loja.Testes.ConsoleApp.DAO.Contexts;
+using Loja.Testes.ConsoleApp.DAO.Interfaces;
 using Loja.Testes.ConsoleApp.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,7 +16,7 @@ namespace Loja.Testes.ConsoleApp.DAO
     {
         
 
-        public ClienteDAO():base(){}
+        public ClienteDAO(LojaContext context):base(context){}
 
         public void Atualizar(Cliente cliente)
         {
@@ -33,10 +34,6 @@ namespace Loja.Testes.ConsoleApp.DAO
             return Context.Clientes.Where(filter).FirstOrDefault();
         }
 
-        public void Dispose()
-        {
-            Context.Dispose();
-        }
 
         public IList<Cliente> Filtrar(Expression<Func<Cliente, bool>> filter)
         {

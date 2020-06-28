@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Loja.Testes.ConsoleApp.DAO.Interfaces
 {
-    interface IBaseDAO<T> : IDisposable
+    interface IBaseDAO<T>
     {
         void Inserir(T item);
         void Atualizar(T item);

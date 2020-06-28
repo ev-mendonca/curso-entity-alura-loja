@@ -1,4 +1,5 @@
-﻿using Loja.Testes.ConsoleApp.DAO.Interfaces;
+﻿using Loja.Testes.ConsoleApp.DAO.Contexts;
+using Loja.Testes.ConsoleApp.DAO.Interfaces;
 using Loja.Testes.ConsoleApp.Model;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Loja.Testes.ConsoleApp.DAO
 {
     public class CompraDAO : BaseDAO, IBaseDAO<Compra>
     {
-        public CompraDAO() : base() { }
+        public CompraDAO(LojaContext context) : base(context) { }
 
         public void Atualizar(Compra compra)
         {
@@ -28,10 +29,6 @@ namespace Loja.Testes.ConsoleApp.DAO
             return Context.Compras.Where(filter).FirstOrDefault();
         }
 
-        public void Dispose()
-        {
-            Context.Dispose();
-        }
 
         public IList<Compra> Filtrar(Expression<Func<Compra, bool>> filter)
         {

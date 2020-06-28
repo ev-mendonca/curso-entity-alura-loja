@@ -16,7 +16,7 @@ namespace Loja.Testes.ConsoleApp.Model
             this.Produtos = new List<PromocaoProduto>();
         }
 
-        public void AdicionaProduto(params Produto[] produtos)
+        public void AdicionaProdutos(params Produto[] produtos)
         {
             foreach (var produto in produtos)
             {
