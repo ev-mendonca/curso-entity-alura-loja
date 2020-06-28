@@ -9,36 +9,26 @@ namespace Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-
-            Produto p1 = new Produto
+            Cliente cliente = new Cliente
             {
-                Nome = "Chocolate em Barra",
-                PrecoUnitario = 4.5,
-                Categoria = "Bomboniere",
-                Unidade = "Unidade"
+                Email = "harry.potter@hogwarts.com",
+                Nome = "Harry Potter",
+                EnderecoDeEntrega = new Endereco
+                {
+                    CEP = "00.000-00",
+                    Logradouro = "Rua dos Alfeneiros",
+                    Numero = "4",
+                    Complemento = "Embaixo da Escada",
+                    Bairro = "Little Whinging",
+                    Cidade = "Londres"
+                }
             };
 
-            Produto p2 = new Produto
+            using(var repo = new ClienteDAO())
             {
-                Nome = "Ovo de Pascoa",
-                PrecoUnitario = 35.00,
-                Categoria = "Bomboniere",
-                Unidade = "Unidade"
-            };
-
-            Promocao promocao = new Promocao
-            {
-                Descricao = "Doce Pascoa",
-                DataInicio = DateTime.Now,
-                DataFim = DateTime.Now.AddMonths(2)
-            };
-
-            promocao.AdicionaProduto(p1, p2);
-
-            using(var repo = new PromocaoDAO())
-            {
-                repo.Inserir(promocao);
+                repo.Inserir(cliente);
             }
+            
             
             
         }

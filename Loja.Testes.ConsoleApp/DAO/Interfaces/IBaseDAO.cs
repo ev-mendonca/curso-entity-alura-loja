@@ -5,9 +5,9 @@ namespace Loja.Testes.ConsoleApp.DAO.Interfaces
 {
     interface IBaseDAO<T> : IDisposable
     {
-        void Inserir(T compra);
-        void Atualizar(T produto);
-        void Remover(T produto);
+        void Inserir(T item);
+        void Atualizar(T item);
+        void Remover(T item);
         IList<T> Listar();
         T Carregar(int id);
     }
