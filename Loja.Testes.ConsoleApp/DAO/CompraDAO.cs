@@ -1,7 +1,9 @@
 ﻿using Loja.Testes.ConsoleApp.DAO.Interfaces;
 using Loja.Testes.ConsoleApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Loja.Testes.ConsoleApp.DAO
@@ -21,9 +23,19 @@ namespace Loja.Testes.ConsoleApp.DAO
             return Context.Compras.Find(id);
         }
 
+        public Compra Carregar(Expression<Func<Compra, bool>> filter)
+        {
+            return Context.Compras.Where(filter).FirstOrDefault();
+        }
+
         public void Dispose()
         {
             Context.Dispose();
+        }
+
+        public IList<Compra> Filtrar(Expression<Func<Compra, bool>> filter)
+        {
+            return Context.Compras.Where(filter).ToList();
         }
 
         public void Inserir(Compra compra)

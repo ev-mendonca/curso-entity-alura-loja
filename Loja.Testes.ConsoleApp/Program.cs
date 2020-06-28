@@ -1,7 +1,10 @@
 ﻿using Loja.Testes.ConsoleApp.DAO;
+using Loja.Testes.ConsoleApp.DAO.Contexts;
 using Loja.Testes.ConsoleApp.DAO.Interfaces;
 using Loja.Testes.ConsoleApp.Model;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Loja.Testes.ConsoleApp
 {
@@ -9,27 +12,16 @@ namespace Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Cliente cliente = new Cliente
-            {
-                Email = "harry.potter@hogwarts.com",
-                Nome = "Harry Potter",
-                EnderecoDeEntrega = new Endereco
-                {
-                    CEP = "00.000-00",
-                    Logradouro = "Rua dos Alfeneiros",
-                    Numero = "4",
-                    Complemento = "Embaixo da Escada",
-                    Bairro = "Little Whinging",
-                    Cidade = "Londres"
-                }
-            };
 
-            using(var repo = new ClienteDAO())
+            using(var repo = new ProdutoDAO())
             {
-                repo.Inserir(cliente);
+                var produtos = repo.Filtrar(x => x.Categoria == "Livros");
+                foreach (var item in produtos)
+                {
+                    Console.WriteLine(item.Nome);
+                }
+                
             }
-            
-            
             
         }
     }

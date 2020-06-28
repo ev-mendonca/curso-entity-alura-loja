@@ -1,7 +1,9 @@
 ﻿using Loja.Testes.ConsoleApp.DAO.Interfaces;
 using Loja.Testes.ConsoleApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Loja.Testes.ConsoleApp.DAO
 {
@@ -20,9 +22,19 @@ namespace Loja.Testes.ConsoleApp.DAO
             return Context.Produtos.Find(id);
         }
 
+        public Produto Carregar(Expression<Func<Produto, bool>> filter)
+        {
+            return Context.Produtos.Where(filter).FirstOrDefault();
+        }
+
         public void Dispose()
         {
             Context.Dispose();
+        }
+
+        public IList<Produto> Filtrar(Expression<Func<Produto, bool>> filter)
+        {
+            return Context.Produtos.Where(filter).ToList();
         }
 
         public void Inserir(Produto produto)

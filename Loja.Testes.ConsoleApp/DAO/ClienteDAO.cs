@@ -1,8 +1,11 @@
 ﻿using Loja.Testes.ConsoleApp.DAO.Interfaces;
 using Loja.Testes.ConsoleApp.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +13,7 @@ namespace Loja.Testes.ConsoleApp.DAO
 {
     public class ClienteDAO : BaseDAO, IBaseDAO<Cliente>
     {
+        
 
         public ClienteDAO():base(){}
 
@@ -24,9 +28,19 @@ namespace Loja.Testes.ConsoleApp.DAO
             return Context.Clientes.Find(id);
         }
 
+        public Cliente Carregar(Expression<Func<Cliente, bool>> filter)
+        {
+            return Context.Clientes.Where(filter).FirstOrDefault();
+        }
+
         public void Dispose()
         {
             Context.Dispose();
+        }
+
+        public IList<Cliente> Filtrar(Expression<Func<Cliente, bool>> filter)
+        {
+            return Context.Clientes.Where(filter).ToList();
         }
 
         public void Inserir(Cliente cliente)
