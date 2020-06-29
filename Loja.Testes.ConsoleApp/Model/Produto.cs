@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Loja.Testes.ConsoleApp.Model
 {
@@ -11,5 +12,6 @@ namespace Loja.Testes.ConsoleApp.Model
         public string Unidade { get; internal set; }
         public IList<PromocaoProduto> Promocoes { get; internal set; }
         public IList<Compra> Compras { get; internal set; }
+
     }
 }

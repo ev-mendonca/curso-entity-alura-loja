@@ -29,9 +29,21 @@ namespace Loja.Testes.ConsoleApp.DAO
             return Context.Produtos.Where(filter).FirstOrDefault();
         }
 
-        public Produto CarregarComCompras(Expression<Func<Produto, bool>> filter)
+        public Produto CarregarComCompras(Expression<Func<Produto, bool>> filter, Expression<Func<Compra, bool>> filterCompra = null)
         {
-            return Context.Produtos.Include(x=>x.Compras).Where(filter).FirstOrDefault();
+            if(filterCompra == null)
+                return Context.Produtos.Include(x=>x.Compras).Where(filter).FirstOrDefault();
+            else
+            {
+                Produto produto = Carregar(filter);
+                Context.Entry(produto)
+                    .Collection(x => x.Compras)
+                    .Query()
+                    .Where(filterCompra)
+                    .Load();    
+                return produto;
+            }
+                
         }
 
 
