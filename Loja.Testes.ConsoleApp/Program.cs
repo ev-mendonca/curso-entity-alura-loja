@@ -15,12 +15,11 @@ namespace Loja.Testes.ConsoleApp
         {
             using(LojaContext context = new LojaContext())
             {
-                var produtoDAO = new ProdutoDAO(context);
-                var promocaoDAO = new PromocaoDAO(context);
+                var dao = new ClienteDAO(context);
+                var dao2 = new ProdutoDAO(context);
+                var promocoes = dao.CarregarComEnderecos(x=>x.Id == 1);
 
-                var produtos = produtoDAO.Filtrar(x => x.Categoria == "Livros");
-
-                var promocoes = promocaoDAO.Listar();
+                var produto = dao2.CarregarComCompras(x=>x.Id == 11);
             }
         }
     }

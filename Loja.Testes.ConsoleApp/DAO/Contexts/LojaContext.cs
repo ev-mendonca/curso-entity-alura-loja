@@ -1,5 +1,10 @@
-﻿using Loja.Testes.ConsoleApp.Model;
+﻿using Loja.Testes.ConsoleApp.DAO.Utils;
+using Loja.Testes.ConsoleApp.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace Loja.Testes.ConsoleApp.DAO.Contexts
 {
@@ -9,7 +14,14 @@ namespace Loja.Testes.ConsoleApp.DAO.Contexts
         public DbSet<Compra> Compras { get; set; }
         public DbSet<Promocao> Promocoes { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        
+
+        public LojaContext():base()
+        {
+            var serviceProvider = this.GetInfrastructure<IServiceProvider>();
+            var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+            loggerFactory.AddProvider(SqlLoggerProvider.Create());
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder

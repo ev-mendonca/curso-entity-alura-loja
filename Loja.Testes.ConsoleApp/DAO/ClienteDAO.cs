@@ -34,6 +34,11 @@ namespace Loja.Testes.ConsoleApp.DAO
             return Context.Clientes.Where(filter).FirstOrDefault();
         }
 
+        public Cliente CarregarComEnderecos(Expression<Func<Cliente, bool>> filter)
+        {
+            return Context.Clientes.Where(filter).Include(x=>x.EnderecoDeEntrega).FirstOrDefault();
+        }
+
 
         public IList<Cliente> Filtrar(Expression<Func<Cliente, bool>> filter)
         {

@@ -13,9 +13,7 @@ namespace Loja.Testes.ConsoleApp.DAO
         public BaseDAO(LojaContext context)
         {
             Context = context;
-            var serviceProvider = Context.GetInfrastructure<IServiceProvider>();
-            var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
-            loggerFactory.AddProvider(SqlLoggerProvider.Create());
+            
         }
     }
 }

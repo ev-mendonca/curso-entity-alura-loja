@@ -1,6 +1,7 @@
 ﻿using Loja.Testes.ConsoleApp.DAO.Contexts;
 using Loja.Testes.ConsoleApp.DAO.Interfaces;
 using Loja.Testes.ConsoleApp.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,14 @@ namespace Loja.Testes.ConsoleApp.DAO
         public Promocao Carregar(Expression<Func<Promocao, bool>> filter)
         {
             return Context.Promocoes.Where(filter).FirstOrDefault();
+        }
+
+        public Promocao CarregarComProdutos(Expression<Func<Promocao, bool>> filter)
+        {
+            return Context.Promocoes.Where(filter)
+                                    .Include(x=>x.Produtos)
+                                    .ThenInclude(x=>x.Produto)
+                                    .FirstOrDefault();
         }
 
         public IList<Promocao> Filtrar(Expression<Func<Promocao, bool>> filter)
