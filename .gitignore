@@ -5,3 +5,5 @@
 /.vs
 /Loja.Testes.ConsoleApp/bin
 /Loja.Testes.ConsoleApp/obj
+/Loja/bin
+/Loja/obj
