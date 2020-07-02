@@ -3,11 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Data.Entities
 {
-    public class Produto
+    public class Produto : BaseEntity
     {
-        [Required]
-        public int ID { get; set; }
-        
         [Required, MaxLength(200)]
         public string Nome { get; set; }
         

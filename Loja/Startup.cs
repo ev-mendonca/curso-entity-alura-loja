@@ -1,4 +1,6 @@
 using Data;
+using Data.Repository;
+using Data.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +27,7 @@ namespace Loja
             string connectionString = Configuration.GetConnectionString("Default");
 
             services.AddDbContext<Context>(options => options.UseSqlServer(connectionString));
+            services.AddTransient<IProdutoRepository, ProdutoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,10 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Data.Entities
 {
-    public class Cliente
+    public class Cliente : BaseEntity
     {
-        [Required]
-        public int ID { get; set; }
+
         [Required, MaxLength(200)]
         public string Nome { get; set; }
         [Required, MaxLength(200)]

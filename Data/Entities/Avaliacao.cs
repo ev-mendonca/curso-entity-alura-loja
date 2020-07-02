@@ -4,11 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Data.Entities
 {
-    public class Avaliacao
+    public class Avaliacao : BaseEntity
     {
-        [Required]
-        public int ID { get; set; }
-
         [Required]
         public int Nota { get; set; }
 

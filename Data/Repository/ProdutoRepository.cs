@@ -5,11 +5,9 @@ using System.Linq;
 
 namespace Data.Repository
 {
-    public class ProdutoRepository : BaseRepository, IProdutoRepository
+    public class ProdutoRepository : BaseRepository<Produto>, IProdutoRepository
     {
-        public IList<Produto> Listar()
-        {
-            return Context.Set<Produto>().ToList();
-        }
+        public ProdutoRepository(Context context) : base(context){}
+
     }
 }
