@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Loja.Migrations
+namespace Data.Migrations
 {
     public partial class max_length : Migration
     {

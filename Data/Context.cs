@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Loja.Models;
-namespace Loja
+using Data.Entities;
+namespace Data
 {
     public class Context : DbContext
     {
+
         public Context(DbContextOptions options):base(options)
         {
 
