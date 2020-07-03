@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Data.Entities
@@ -19,6 +20,17 @@ namespace Data.Entities
         
         [Required]
         public string Detalhes { get; set; }
+        
+        [Required]
+        public Categoria Categoria { get; set; }
+
+        [Required]
+        public DateTime DataCadastro { get; set; }
+
+        [Required]
+        public byte[] ImagemPrincipal { get; set; }
+        public byte[] Imagem2 { get; set; }
+        public byte[] Imagem3 { get; set; }
 
         public decimal PercentualDesconto { get; set; }
 

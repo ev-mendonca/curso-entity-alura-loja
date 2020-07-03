@@ -16,7 +16,8 @@ namespace Data
 
             modelBuilder.Entity<Produto>().HasKey(x => x.ID);
             modelBuilder.Entity<Produto>().HasMany(x => x.Avaliacoes);
-
+            modelBuilder.Entity<Produto>().HasOne(x => x.Categoria).WithMany(x => x.Produtos).IsRequired();
+            
             modelBuilder.Entity<Cliente>().HasKey(x => x.ID);
             modelBuilder.Entity<Cliente>().HasMany(x => x.Avaliacoes);
 
@@ -24,6 +25,11 @@ namespace Data
             modelBuilder.Entity<Avaliacao>().HasOne(x => x.Cliente).WithMany(x => x.Avaliacoes).IsRequired();
             modelBuilder.Entity<Avaliacao>().HasOne(x => x.Produto).WithMany(x => x.Avaliacoes).IsRequired();
 
+            modelBuilder.Entity<Categoria>().HasKey(x => x.ID);
+            modelBuilder.Entity<Categoria>().HasMany(x => x.Produtos);
+            modelBuilder.Entity<Categoria>().HasOne(x => x.CategoriaPai);
+
+            modelBuilder.Entity<Usuario>().HasKey(x => x.ID);
         }
     }
 }
